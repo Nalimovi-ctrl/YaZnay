@@ -284,10 +284,11 @@ html
                     typeContainer.innerHTML = currentHTML + '<span class="cursor"></span>';
                     i++;
                     
-                    // На мобильных печатаем чуть быстрее, чтобы пользователь не устал ждать
-                    let baseSpeed = window.innerWidth < 768 ? 25 : 35;
-                    let delay = isTag ? 0 : Math.random() * baseSpeed + 15; 
-                    if (!isTag && (char === '.' || char === '…')) delay += 300;
+                    // ЗАМЕДЛЕННАЯ ВЕРСИЯ
+                    // Первое число для мобилок (70), второе для ПК (120)
+                    let baseSpeed = window.innerWidth < 768 ? 70 : 120; 
+                    // Добавляем +70мс к каждой букве
+                    let delay = isTag ? 0 : Math.random() * baseSpeed + 70;
 
                     setTimeout(typeWriter, delay);
                 } else {
